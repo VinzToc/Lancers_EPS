@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lancers EPS</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#14151a">
+<link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="lancers.css">
+</head><body>
+<header><img src="icons/icon-192.png" alt="Logo"><div style="flex:1"><h1>Lancers EPS</h1><p>Javelot · Disque · Poids — version professeur</p></div><a class="back" href="https://vinztoc.github.io/Mes_Apps_EPS/">← Portail</a></header>
+<main>
+<section id="t1" class="tab act">
+ <div class="card"><h2>👤 Élève</h2>
+  <div class="grid2"><label>Classe<select id="fc"><option value="">Toutes les classes</option></select></label>
+  <label>Élève<select id="fe"><option value="">— Choisir —</option></select></label></div>
+  <p class="rgpd" id="eInfo"></p>
+  <div class="row"><label class="btn b" style="margin:0">📥 Charger la liste (.xlsx / .csv)<input id="fileList" type="file" accept=".csv,.xlsx" hidden></label><span id="eMsg" class="rgpd" style="margin:0;font-weight:700"></span></div>
+ </div>
+ <div id="saisie"></div>
+</section>
+<section id="t2" class="tab"><div class="card"><h2>📊 Bilan des saisies</h2>
+ <div class="grid2"><label>Classe<select id="bc"><option value="">Toutes les classes</option></select></label>
+ <label>Épreuve<select id="be"><option value="">Toutes</option><option>Javelot</option><option>Disque</option><option>Poids</option></select></label></div>
+ <p class="rgpd" id="bSum"></p>
+ <div class="wrap"><table><thead><tr><th>Élève</th><th>Date</th><th>Épreuve</th><th>Cat.</th><th>Meilleur</th><th>M3</th><th>Prév.</th><th>Note /20</th></tr></thead><tbody id="bTb"></tbody></table></div>
+ <div class="row"><button class="btn b" id="expAll">⬇ Exporter le fichier compilé (.xlsx)</button><button class="btn" id="expMe">⬇ Cette appli seule (.xlsx)</button>
+  <label class="btn r" style="margin:0">📥 Importer un fichier .xlsx<input id="fileImp" type="file" accept=".csv,.xlsx" hidden></label></div>
+ <p id="bMsg" class="rgpd" style="font-weight:700"></p>
+</div></section>
+<section id="t3" class="tab"><div class="card"><h2>⚙️ Barème personnalisé</h2>
+ <p class="rgpd" style="margin:0 0 8px">Chaque ligne : la note est attribuée dès que la performance atteint le seuil (≥). Sous le premier seuil : 0. Le barème est enregistré sur cet appareil (navigateur) ; il s’applique à toutes les saisies de cette appli.</p>
+ <div class="grid2"><label>Épreuve<select id="bEp"><option value="javelot">🎯 Javelot</option><option value="disque">🥏 Disque</option><option value="poids">⚫ Poids</option></select></label>
+ <label>Catégorie<select id="bSx"><option value="F">Filles</option><option value="G">Garçons</option></select></label></div>
+ <p class="warn" id="bProv" hidden></p>
+ <div id="bTables"></div>
+ <div class="row"><button class="btn g" id="bSave">💾 Enregistrer le barème</button><button class="btn r" id="bReset">↺ Barème par défaut (cette épreuve)</button></div>
+ <div class="grid2" style="margin-top:12px"><label>Copier le barème de…<select id="bCopy"><option value="">—</option><option value="javelot">Javelot</option><option value="disque">Disque</option><option value="poids">Poids</option></select></label>
+ <div class="row" style="margin:0;align-self:end"><button class="btn b" id="bCopyGo">Copier vers l’épreuve affichée</button></div></div>
+ <div class="row"><button class="btn b" id="bExp">⬇ Exporter le barème (.json)</button><label class="btn r" style="margin:0">⬆ Importer un barème (.json)<input id="bImp" type="file" accept=".json,application/json" hidden></label></div>
+ <p id="bMsg2" class="rgpd" style="font-weight:700"></p>
+</div></section>
+</main>
+<p class="ver">Version <span id="ver"></span> · données stockées uniquement sur cet appareil</p>
+<nav><button class="act" data-t="t1">🎯 Saisie</button><button data-t="t2">📊 Bilan</button><button data-t="t3">⚙️ Barème</button></nav>
+<script src="version.js"></script>
+<script src="eps-core.js"></script>
+<script src="bareme-defaut.js"></script>
+<script src="lancers-core.js"></script>
+<script src="lancers-saisie.js"></script>
+<script src="app-prof.js"></script>
+</body></html>
