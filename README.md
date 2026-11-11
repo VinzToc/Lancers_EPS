@@ -1,4 +1,4 @@
-# Lancers EPS (version professeur)
+# Lancers'Projet (espace professeur)
 PWA intégrée à Mes Apps EPS — identifiant d'application : `lancers`.
 Déploiement : dépôt `Lancers_EPS` → Settings → Pages → `main` / root → https://vinztoc.github.io/Lancers_EPS/
 Puis ajouter la ligne de `portails/apps_json_a_ajouter.txt` dans `apps.json` de `Mes_Apps_EPS`.

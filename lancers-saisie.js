@@ -47,7 +47,7 @@ const LS=(function(){
     <div class="ln"><span>Note justesse de la prévision</span><b>${fmt(r.np,1)} / 4</b></div>
     ${r.moinsDe3?`<p class="warn">Moins de 3 essais valides : la moyenne M3 est calculée sur ${r.nbValides} essai(s).</p>`:''}
     ${r.prevuSaisie?'':'<p class="warn">Prévision non renseignée : 0 / 4 sur la justesse de la prévision.</p>'}
-    <div class="total"><small>NOTE FINALE</small><span class="n">${fmt(r.total,1)}</span> <small style="display:inline">/ 20</small></div>`;
+    <div class="total"><small>NOTE FINALE</small><span class="n">${fmt(r.total,1)}</span> <small class="s">/ 20</small><div class="bar"><i style="width:${Math.max(0,Math.min(100,r.total*5))}%"></i></div></div>`;
   }
   function ligne(){const r=st.r,v=vals().map(LANCERS.num),B0=B(),L={Date:today(),'Épreuve':B0.nom,'Catégorie':SX[st.sx]};
    v.forEach((x,i)=>{if(x!==null&&x>0)L['Essai_'+(i+1)]=x});
