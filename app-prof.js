@@ -31,7 +31,9 @@ function listeEleves(){const c=$('#fc').value,keep=$('#fe').value;
  $('#fe').innerHTML='<option value="">— Choisir —</option>'+r.map(e=>`<option value="${esc(e.id)}" ${e.id===keep?'selected':''}>${esc(e.nom.toUpperCase())} ${esc(e.prenom)}${c?'':' ('+esc(e.classe)+')'}</option>`).join('');
  cur=L.find(e=>e.id===$('#fe').value)||null}
 $('#fc').onchange=()=>{$('#fe').value='';listeEleves()};
-$('#fe').onchange=()=>{cur=L.find(e=>e.id===$('#fe').value)||null;$('#eMsg').textContent=''};
+/* La catégorie (Filles/Garçons) suit le sexe de l'élève lu dans Pronote via Mes Apps EPS (eps-core v2.4) ; elle reste modifiable à la main. */
+function appliquerSexe(){try{if(!cur||(cur.sexe!=='F'&&cur.sexe!=='M'))return '';const sx=cur.sexe==='F'?'F':'G';saisie.state.sx=sx;saisie.refresh();return sx}catch(e){return ''}}
+$('#fe').onchange=()=>{cur=L.find(e=>e.id===$('#fe').value)||null;const sx=appliquerSexe();$('#eMsg').className='rgpd ok';$('#eMsg').textContent=cur?(sx?'Catégorie réglée sur '+LS.SX[sx]+' (sexe issu de Pronote).':'⚠ Sexe non renseigné pour cet élève : choisis la catégorie à la main (ou réimporte le CSV Pronote dans Mes Apps EPS).'):''};
 async function importer(f,msgEl){const m=$(msgEl);try{const r=await EPS.importFile(f);m.className='rgpd ok';m.style.fontWeight='700';
   m.textContent=`✅ ${r.add} ajouté(s), ${r.upd} mis à jour.`+(r.apps?` ${r.apps} feuille(s) d’application intégrée(s).`:'')+(r.ign?` ${r.ign} ligne(s) ignorée(s) (élève absent de la liste).`:'');
   await elevesRefresh();bilan()}catch(e){m.className='rgpd ko';m.textContent='❌ '+(e&&e.message||e)}}
