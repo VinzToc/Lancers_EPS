@@ -3,8 +3,17 @@
 <title>Lancers'Projet – Prof</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1c0b45">
 <link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="stylesheet" href="lancers.css">
+
+<style id="titre-moderne">/* Titre en casse mixte + logo mis en valeur, aux couleurs du logo */
+header h1{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif!important;font-style:italic!important;font-weight:900!important;text-transform:none!important;letter-spacing:.005em!important;line-height:1.08;font-size:1.75rem!important;background:none!important;-webkit-text-stroke:0!important;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 0 #1c0b45,0 4px 12px rgba(0,0,0,.45)!important}
+header h1 .tm{background:linear-gradient(180deg,#ffd27a,#fc9a1f 72%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:#fc9a1f!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;filter:drop-shadow(0 2px 0 #1c0b45)}
+header h1 small,header h1 em{font-style:normal!important;text-shadow:none!important;-webkit-text-fill-color:currentColor!important}
+header img{border-radius:22%!important;box-shadow:0 0 0 2px rgba(255,255,255,.3),0 0 22px rgba(252,172,55,.45),0 6px 16px rgba(0,0,0,.4)!important;transition:transform .3s}
+header img:hover{transform:rotate(-5deg) scale(1.05)}
+@media(max-width:520px){header h1{font-size:calc(1.75rem * .8)!important}}
+</style>
 </head><body>
-<header><img src="icons/icon-192.png" alt="Logo"><div style="flex:1"><h1>Lancers'Projet</h1><p>Javelot · Disque · Poids — espace professeur</p></div><a class="back" href="https://vinztoc.github.io/Mes_Apps_EPS/">← Portail</a></header>
+<header><img src="icons/icon-192.png" alt="Logo"><div style="flex:1"><h1>Lancers'<span class="tm">Projet</span></h1><p>Javelot · Disque · Poids — espace professeur</p></div><a class="back" href="https://vinztoc.github.io/Mes_Apps_EPS/">← Portail</a></header>
 <main>
 <section id="t1" class="tab act">
  <div class="card"><h2>👤 Élève</h2>
